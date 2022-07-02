@@ -1,13 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background: url( './images/grafitti_bg.jpg' ) repeat-y center top;
+  height: 2000px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App .Header {
+  min-width: 100%;
+  color: silver;
+  border-bottom: 1px solid silver;
+  position: fixed;
+  top: 0;
+}
+
+.App .Header h1 {
+  font-size: 20px;
 }
