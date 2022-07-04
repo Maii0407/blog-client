@@ -9,8 +9,8 @@ const App = () => {
   const [ postListData, setPostListData ] = useState([]);
 
   useEffect( () => {
-    const getPostData = async () => {
-      const link = 'http://localhost:4000/posts';
+    const getPostListData = async () => {
+      const link = 'https://maii-restapi.herokuapp.com/posts';
   
       try {
         const response = await fetch( link, { method: 'GET', mode: 'cors' });
@@ -24,7 +24,7 @@ const App = () => {
     }
 
     if( postListData.length === 0 ) {
-      getPostData();
+      getPostListData();
     }
   }, [ postListData ]);
 
