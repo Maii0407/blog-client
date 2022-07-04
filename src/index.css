@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: url( './images/grafitti_bg.jpg' ) repeat-y center top;
+  color: silver;
 }
 
 .App .Header {
@@ -24,6 +25,7 @@ body {
 .post-container {
   display: grid;
   grid-template-columns: repeat( 1, 1fr );
+  grid-gap: 10px;
 }
 
 .App .Header h1 {
@@ -33,15 +35,17 @@ body {
 
 .Posts {
   background-color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 10px;
+  cursor: pointer;
   border: 1px solid silver;
 }
 
 .Posts p {
-  color: white;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .Posts .headings {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }

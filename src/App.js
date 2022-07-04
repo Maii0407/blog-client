@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { Posts } from './components/Posts';
+import { PostDetail } from './components/PostDetail';
 
 const App = () => {
   const [ postListData, setPostListData ] = useState([]);
@@ -30,13 +32,26 @@ const App = () => {
     <div className='App'>
       <Header textContent='MYblog'/>
       <div className='content-container'>
-        <div className='post-container'>
+        <Routes>
+          <Route path='/' element={ 
+            <div className='post-container'>
+              {
+                postListData.map( ( post ) => {
+                  return <Posts key={ post._id } post={ post } />
+                })
+              }
+            </div>
+          }/>
           {
             postListData.map( ( post ) => {
-              return <Posts key={ post._id } post={ post } />
+              return <Route 
+                key={ post._id }
+                path={ `/posts/${ post._id }` }
+                element={ <PostDetail post={ post }/> }
+              />
             })
           }
-        </div>
+        </Routes>
       </div>
     </div>
   );
