@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { Header } from './components/Header';
+import { Posts } from './components/Posts';
 
 const App = () => {
-  const [ postData, setPostData ] = useState([]);
+  const [ postListData, setPostListData ] = useState([]);
 
   useEffect( () => {
     const getPostData = async () => {
@@ -12,7 +13,7 @@ const App = () => {
       try {
         const response = await fetch( link, { method: 'GET', mode: 'cors' });
         const data = await response.json();
-        setPostData( data.postList );
+        setPostListData( data.postList );
         console.log( data.postList )
       }
       catch( err ) {
@@ -20,14 +21,21 @@ const App = () => {
       }
     }
 
-    if( postData.length === 0 ) {
+    if( postListData.length === 0 ) {
       getPostData();
     }
-  }, [ postData ]);
+  }, [ postListData ]);
 
   return (
     <div className='App'>
-      <Header textContent='readPOSTs'/>
+      <Header textContent='MYblog'/>
+      <div className='post-container'>
+        {
+          postListData.map( ( post ) => {
+            return <Posts key={ post._id } post={ post } />
+          })
+        }
+      </div>
     </div>
   );
 };
