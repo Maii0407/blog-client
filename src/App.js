@@ -29,12 +29,14 @@ const App = () => {
   return (
     <div className='App'>
       <Header textContent='MYblog'/>
-      <div className='post-container'>
-        {
-          postListData.map( ( post ) => {
-            return <Posts key={ post._id } post={ post } />
-          })
-        }
+      <div className='content-container'>
+        <div className='post-container'>
+          {
+            postListData.map( ( post ) => {
+              return <Posts key={ post._id } post={ post } />
+            })
+          }
+        </div>
       </div>
     </div>
   );
